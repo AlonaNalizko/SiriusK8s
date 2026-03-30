@@ -12,7 +12,7 @@
 | Vardaniya | Levan | — | | | | | | | | |
 | Gorduzov | Matvey | `Gorduzov/` | ✓ | ✓ | ✓ | ✓ | | | | |
 | Zhdanov | Ivan | `Zhdanov/` | ✓ | | | | | | | |
-| Zyza | Varvara | `Zyza/` | ✓ | | | | | | | PDF «первая практика» |
+| Zyza | Varvara | `Zyza/` | ✓ | | | | | | | |
 | Kalashnikov | Aleksey | `Kalashnikov/` | ✓ | ✓ | | | | | | |
 | Krasavina | Darya | — | | | | | | | | |
 | Mameeva | Milena | `MameevaMilena/` | ✓ | ✓ | | ✓ | | | | |
