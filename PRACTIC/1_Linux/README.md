@@ -69,7 +69,7 @@ cat /sys/fs/cgroup/mytest/cpu.stat
 top   # посмотреть %CPU процесса
 
 # Убрать нагрузку
-sudo kill $(cat /sys/fs/cgroup/mytest/cgroup.procs)
+sudo kill -9 $(cat /sys/fs/cgroup/mytest/cgroup.procs)
 ```
 
 > Если stress-ng не установлен: `sudo apt install stress-ng -y`
