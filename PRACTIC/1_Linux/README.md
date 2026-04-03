@@ -2,6 +2,8 @@
 **Время:** 80 минут
 **Тема:** Namespaces, cgroups, chroot — как Linux изолирует процессы
 
+**Дополнительно:** учебные поломки — [`PRACTIC/BREAK/README.md`](../BREAK/README.md) (`linux-chaos.sh` и [`break_lab/`](../BREAK/break_lab/README.md)).
+
 ---
 
 ## Цель занятия

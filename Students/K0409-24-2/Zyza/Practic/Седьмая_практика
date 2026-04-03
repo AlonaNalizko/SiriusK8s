@@ -1,0 +1,7 @@
+Понравилось работать с NetworkPolicy: настроила default-deny, потом точечно разрешила трафик frontend → backend → database; frontend теперь не видит базу напрямую — изоляция работает, но с селекторами немного помучилась. С TLS-сертификатами через OpenSSL сгенерировала свой CA, подписала сертификат, подключила к Ingress — `curl --cacert ca.crt https://webapp.local. Falco как будто бы слишком много ресурсов забирает.
+![Первый скрин](../Images/Screen1_7.png)
+![Второй скрин](../Images/Screen2_7.png)
+![Третий скрин](../Images/Screen3_7.png)
+![Четвертый скрин](../Images/Screen4_7.png)
+![Пятый скрин](../Images/Screen5_7.png)
+![Шестой скрин](../Images/Screen6_7.png)

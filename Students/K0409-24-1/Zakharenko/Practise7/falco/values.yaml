@@ -1,0 +1,548 @@
+affinity: {}
+certs:
+  ca:
+    crt: ""
+  existingSecret: ""
+  server:
+    crt: ""
+    key: ""
+collectors:
+  containerd:
+    enabled: true
+    socket: /run/containerd/containerd.sock
+  crio:
+    enabled: true
+    socket: /run/crio/crio.sock
+  docker:
+    enabled: false
+    socket: /var/run/docker.sock
+  enabled: true
+  kubernetes:
+    apiAuth: /var/run/secrets/kubernetes.io/serviceaccount/token
+    apiUrl: https://$(KUBERNETES_SERVICE_HOST)
+    enableNodeFilter: true
+    enabled: true
+containerSecurityContext: {}
+controller:
+  daemonset:
+    updateStrategy:
+      type: RollingUpdate
+  deployment:
+    replicas: 1
+  kind: daemonset
+customRules: {}
+driver:
+  ebpf:
+    hostNetwork: false
+    leastPrivileged: false
+    path: null
+  enabled: true
+  kind: module
+  loader:
+    enabled: true
+    initContainer:
+      args: []
+      enabled: true
+      env: {}
+      image:
+        pullPolicy: IfNotPresent
+        registry: cr.yandex/yc-marketplace
+        repository: falcosecurity/falco-driver-loader
+        tag: v0.33.1
+      resources: {}
+      securityContext: {}
+extra:
+  args: []
+  env: {}
+  initContainers: []
+falco:
+  buffered_outputs: false
+  file_output:
+    enabled: false
+    filename: ./events.txt
+    keep_alive: false
+  grpc:
+    bind_address: unix:///var/run/falco/falco.sock
+    enabled: false
+    threadiness: 0
+  grpc_output:
+    enabled: false
+  http_output:
+    enabled: true
+    url: http://falco-falcosidekick:2801
+    user_agent: falcosecurity/falco
+  json_include_output_property: true
+  json_include_tags_property: true
+  json_output: true
+  libs_logger:
+    enabled: false
+    severity: debug
+  load_plugins: []
+  log_level: info
+  log_stderr: true
+  log_syslog: true
+  metadata_download:
+    chunk_wait_us: 1000
+    max_mb: 100
+    watch_freq_sec: 1
+  output_timeout: 2000
+  outputs:
+    max_burst: 1000
+    rate: 1
+  plugins:
+  - init_config: null
+    library_path: libk8saudit.so
+    name: k8saudit
+    open_params: http://:9765/k8s-audit
+  - library_path: libcloudtrail.so
+    name: cloudtrail
+  - init_config: ""
+    library_path: libjson.so
+    name: json
+  priority: debug
+  program_output:
+    enabled: false
+    keep_alive: false
+    program: 'jq ''{text: .output}'' | curl -d @- -X POST https://hooks.slack.com/services/XXX'
+  rules_file:
+  - /etc/falco/falco_rules.yaml
+  - /etc/falco/falco_rules.local.yaml
+  - /etc/falco/rules.d
+  stdout_output:
+    enabled: true
+  syscall_event_drops:
+    actions:
+    - log
+    - alert
+    max_burst: 1
+    rate: 0.03333
+    threshold: 0.1
+  syscall_event_timeouts:
+    max_consecutives: 1000
+  syslog_output:
+    enabled: true
+  time_format_iso_8601: false
+  watch_config_files: true
+  webserver:
+    enabled: true
+    k8s_healthz_endpoint: /healthz
+    listen_port: 8765
+    ssl_certificate: /etc/falco/falco.pem
+    ssl_enabled: false
+falcosidekick:
+  affinity: {}
+  config:
+    alertmanager:
+      checkcert: true
+      endpoint: /api/v1/alerts
+      expireafter: ""
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+    aws:
+      accesskeyid: ""
+      cloudwatchlogs:
+        loggroup: ""
+        logstream: ""
+        minimumpriority: ""
+      kinesis:
+        minimumpriority: ""
+        streamname: ""
+      lambda:
+        functionname: ""
+        minimumpriority: ""
+      region: ""
+      rolearn: ""
+      s3:
+        bucket: ""
+        minimumpriority: ""
+        prefix: ""
+      secretaccesskey: ""
+      sns:
+        minimumpriority: ""
+        rawjson: false
+        topicarn: ""
+      sqs:
+        minimumpriority: ""
+        url: ""
+    azure:
+      eventHub:
+        minimumpriority: ""
+        name: ""
+        namespace: ""
+      podIdentityClientID: ""
+      podIdentityName: ""
+      resourceGroupName: ""
+      subscriptionID: ""
+    cliq:
+      icon: ""
+      messageformat: ""
+      minimumpriority: ""
+      outputformat: all
+      useemoji: true
+      webhookurl: ""
+    cloudevents:
+      address: ""
+      extension: ""
+      minimumpriority: ""
+    customfields: ""
+    datadog:
+      apikey: ""
+      host: ""
+      minimumpriority: ""
+    debug: false
+    discord:
+      icon: ""
+      minimumpriority: ""
+      webhookurl: ""
+    dogstatsd:
+      forwarder: ""
+      namespace: falcosidekick.
+      tags: ""
+    elasticsearch:
+      checkcert: true
+      hostport: ""
+      index: falco
+      minimumpriority: ""
+      mutualtls: false
+      password: ""
+      type: event
+      username: ""
+    existingSecret: ""
+    extraEnv: []
+    fission:
+      checkcert: true
+      function: ""
+      minimumpriority: ""
+      mutualtls: false
+      routernamespace: fission
+      routerport: 80
+      routerservice: router
+    gcp:
+      cloudfunctions:
+        minimumpriority: ""
+        name: ""
+      cloudrun:
+        endpoint: ""
+        jwt: ""
+        minimumpriority: ""
+      credentials: ""
+      pubsub:
+        minimumpriority: ""
+        projectid: ""
+        topic: ""
+      storage:
+        bucket: ""
+        minimumpriority: debug
+        prefix: ""
+    googlechat:
+      messageformat: ""
+      minimumpriority: ""
+      outputformat: all
+      webhookurl: ""
+    grafana:
+      allfieldsastags: false
+      apikey: ""
+      checkcert: true
+      dashboardid: ""
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+      panelid: ""
+    influxdb:
+      checkcert: true
+      database: falco
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+      password: ""
+      user: ""
+    kafka:
+      hostport: ""
+      minimumpriority: ""
+      topic: ""
+    kafkarest:
+      address: ""
+      checkcert: true
+      minimumpriority: ""
+      mutualtls: false
+      version: 2
+    kubeless:
+      checkcert: true
+      function: ""
+      minimumpriority: ""
+      mutualtls: false
+      namespace: ""
+      port: 8080
+    loki:
+      checkcert: true
+      endpoint: /api/prom/push
+      extralabels: ""
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+      tenant: ""
+    mattermost:
+      checkcert: true
+      footer: ""
+      icon: ""
+      messageformat: ""
+      minimumpriority: ""
+      mutualtls: false
+      outputformat: all
+      username: ""
+      webhookurl: ""
+    mutualtlsfilespath: /etc/certs
+    nats:
+      checkcert: true
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+    openfaas:
+      checkcert: true
+      functionname: ""
+      functionnamespace: openfaas-fn
+      gatewaynamespace: openfaas
+      gatewayport: 8080
+      gatewayservice: gateway
+      minimumpriority: ""
+      mutualtls: false
+    opsgenie:
+      apikey: ""
+      checkcert: true
+      minimumpriority: ""
+      mutualtls: false
+      region: ""
+    pagerduty:
+      minimumpriority: ""
+      routingkey: ""
+    policyreport:
+      enabled: true
+      failthreshold: 3
+      kubeconfig: ~/.kube/config
+      maxevents: 10
+      minimumpriority: ""
+      prunebypriority: false
+    prometheus:
+      extralabels: ""
+    rabbitmq:
+      minimumpriority: debug
+      queue: ""
+      url: ""
+    rocketchat:
+      checkcert: true
+      icon: ""
+      messageformat: ""
+      minimumpriority: ""
+      mutualtls: false
+      outputformat: all
+      username: ""
+      webhookurl: ""
+    slack:
+      footer: ""
+      icon: ""
+      messageformat: ""
+      minimumpriority: ""
+      outputformat: all
+      username: ""
+      webhookurl: ""
+    smtp:
+      from: ""
+      hostport: ""
+      minimumpriority: ""
+      outputformat: html
+      password: ""
+      to: ""
+      user: ""
+    stan:
+      checkcert: true
+      clientid: ""
+      clusterid: ""
+      hostport: ""
+      minimumpriority: ""
+      mutualtls: false
+    statsd:
+      forwarder: ""
+      namespace: falcosidekick.
+    syslog:
+      host: ""
+      minimumpriority: ""
+      port: ""
+      protocol: tcp
+    teams:
+      activityimage: ""
+      minimumpriority: ""
+      outputformat: all
+      webhookurl: ""
+    wavefront:
+      batchsize: 10000
+      endpointhost: ""
+      endpointmetricport: 2878
+      endpointtoken: ""
+      endpointtype: ""
+      flushintervalseconds: 1
+      metricname: falco.alert
+      minimumpriority: debug
+    webhook:
+      address: ""
+      checkcert: true
+      customHeaders: ""
+      minimumpriority: ""
+      mutualtls: false
+    yandex:
+      accesskeyid: ""
+      region: ""
+      s3:
+        bucket: ""
+        endpoint: ""
+        minimumpriority: ""
+        prefix: ""
+      secretaccesskey: ""
+  enabled: true
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullfqdn: false
+  fullnameOverride: ""
+  global: {}
+  image:
+    pullPolicy: IfNotPresent
+    registry: cr.yandex/yc-marketplace
+    repository: falcosecurity/falcosidekick
+    tag: v2.26.1
+  imagePullSecrets: []
+  ingress:
+    annotations: {}
+    enabled: false
+    hosts:
+    - host: falcosidekick.local
+      paths:
+      - path: /
+    tls: []
+  listenPort: ""
+  nameOverride: ""
+  nodeSelector: {}
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext:
+    fsGroup: 1234
+    runAsUser: 1234
+  podSecurityPolicy:
+    create: false
+  priorityClassName: ""
+  replicaCount: 1
+  resources: {}
+  securityContext: {}
+  service:
+    annotations: {}
+    port: 2801
+    type: ClusterIP
+  tolerations: []
+  webui:
+    affinity: {}
+    enabled: false
+    externalRedis:
+      enabled: false
+      port: 6379
+      url: ""
+    image:
+      pullPolicy: IfNotPresent
+      registry: docker.io
+      repository: falcosecurity/falcosidekick-ui
+      tag: v2.0.2
+    ingress:
+      annotations: {}
+      enabled: false
+      hosts:
+      - host: falcosidekick-ui.local
+        paths:
+        - path: /
+      tls: []
+    nodeSelector: {}
+    podAnnotations: {}
+    podLabels: {}
+    podSecurityContext:
+      fsGroup: 1234
+      runAsUser: 1234
+    priorityClassName: ""
+    redis:
+      affinity: {}
+      enabled: true
+      image:
+        pullPolicy: IfNotPresent
+        registry: docker.io
+        repository: redislabs/redisearch
+        tag: 2.2.4
+      nodeSelector: {}
+      podAnnotations: {}
+      podLabels: {}
+      podSecurityContext: {}
+      priorityClassName: ""
+      resources: {}
+      securityContext: {}
+      service:
+        annotations: {}
+        port: 6379
+        targetPort: 6379
+        type: ClusterIP
+      storageClass: ""
+      storageEnabled: true
+      storageSize: 1Gi
+      tolerations: []
+    replicaCount: 2
+    resources: {}
+    securityContext: {}
+    service:
+      annotations: {}
+      nodePort: 30282
+      port: 2802
+      targetPort: 2802
+      type: ClusterIP
+    tolerations: []
+fullnameOverride: ""
+healthChecks:
+  livenessProbe:
+    initialDelaySeconds: 60
+    periodSeconds: 15
+    timeoutSeconds: 5
+  readinessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 15
+    timeoutSeconds: 5
+image:
+  pullPolicy: IfNotPresent
+  registry: cr.yandex/yc-marketplace
+  repository: falcosecurity/falco-no-driver
+  tag: v0.33.1
+imagePullSecrets: []
+mounts:
+  enforceProcMount: false
+  volumeMounts: []
+  volumes: []
+nameOverride: ""
+nodeSelector: {}
+podAnnotations: {}
+podLabels: {}
+podPriorityClassName: null
+podSecurityContext: {}
+policyReportsCrd:
+  create: false
+rbac:
+  create: true
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1024Mi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+scc:
+  create: false
+serviceAccount:
+  annotations: {}
+  create: true
+  name: ""
+services: null
+tolerations:
+- effect: NoSchedule
+  key: node-role.kubernetes.io/master
+tty: false
