@@ -1,0 +1,13 @@
+# pod-rbac-demo.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rbac-test
+  namespace: rbac-demo
+spec:
+  serviceAccountName: app-reader
+  containers:
+  - name: kubectl
+    image: bitnami/kubectl:latest
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-c", "sleep 3600"]
