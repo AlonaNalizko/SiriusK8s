@@ -32,7 +32,7 @@ path, n = sys.argv[1], int(sys.argv[2])
 # пул IP, часть «горячих» для реалистичного топа
 hot = [f"10.{random.randint(0,50)}.{random.randint(0,255)}.{random.randint(1,254)}" for _ in range(12)]
 pool = hot + [f"192.168.{random.randint(0,255)}.{random.randint(1,254)}" for _ in range(500)]
-weights = [hot[i % len(hot)] if random.random() < 0.12 else random.choice(pool) for _ in range(n)]
+weights = [hot[_ % len(hot)] if random.random() < 0.12 else random.choice(pool) for _ in range(n)]
 
 with open(path, "w", buffering=1024 * 1024) as f:
     for ip in weights:
