@@ -135,3 +135,17 @@ server {
     }
 ```
 
+Посмотрим Nginx логи
+<img width="886" height="211" alt="image" src="https://github.com/user-attachments/assets/ff6e615d-2e05-4ed2-91e0-4140bbd5cffd" />
+
+Перезагрузим конфиги Nginx без перезапуска контейнера
+<img width="882" height="56" alt="image" src="https://github.com/user-attachments/assets/c866c6f7-1c6c-48c4-8aa4-b470598d180c" />
+
+Проверим что конфиги Nginx в порядке
+<img width="878" height="88" alt="image" src="https://github.com/user-attachments/assets/e022d04b-911a-4e91-9fb2-058641503fff" />
+
+Проверим корректность подключения(ss не установлен в контейнере, поэтому использовал netstat)
+<img width="887" height="125" alt="image" src="https://github.com/user-attachments/assets/7eeb1844-cb51-4f5a-a561-d0c153e3e9ad" />
+
+
+# Lesson 2: Docker Containerization & Multi-Stage Builds
