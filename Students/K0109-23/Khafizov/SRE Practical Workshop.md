@@ -171,6 +171,7 @@ server {
 
 # Lesson 3: Rate Limiting & Middleware Architecture
 Протестируем ограничения частоты запросов. Скрипт просто стучится по эндпоинтам и проверяет, что ограничения работают.
+
 <img width="564" height="364" alt="image" src="https://github.com/user-attachments/assets/c99b1595-e2c1-48fb-a40d-15000f669249" />
 
 Проверим журнал работы ограничений
