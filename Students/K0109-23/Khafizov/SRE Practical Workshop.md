@@ -149,3 +149,23 @@ server {
 
 
 # Lesson 2: Docker Containerization & Multi-Stage Builds
+Разберём файлы `Dockerfile.app` и `Dockerfile.middleware` 
+
+В `Dockerfile.app` мы используем miltistage сборку. Берётся контейнер с Golang в нем мы копирем основной код, файлы зависимостей + контрольные суммы зависимостей. После Go-код компилируется в один бинарный файл. После перем чистый образ Alpine скачиваем туда сертификаты, curl, postgres, копируем приложение из этапа builder, настраиваем порт и запускаем приложение.
+
+В `Dockerfile.middleware` - сборка node.js, в котором просто копируем `middleware.js`, `package.json`, настраиваем порт и запускам node. В `middleware.js` описанно прокрисирование запросов от клиентов на основной сервер, ограничение запросов и логирование запросов: в файлы и в psql(время, метод, путь, статус, IP, User-Agent и т.д).
+
+Проверим детали докер образа
+<img width="791" height="834" alt="Снимок экрана 2026-04-15 152533" src="https://github.com/user-attachments/assets/7333d1ba-1c08-4694-8bfd-2407ed22b96d" />
+
+Проверим слои образа
+<img width="651" height="310" alt="Снимок экрана 2026-04-15 152603" src="https://github.com/user-attachments/assets/0abef530-5b86-4810-9b59-ee3ba0a4b82b" />
+
+Посмотрим объём образов, которые начинаются на `practic`
+<img width="647" height="84" alt="Снимок экрана 2026-04-15 152636" src="https://github.com/user-attachments/assets/52adcbb7-6ad9-49d3-b266-0a4e3003cf4a" />
+
+Проверим файловую систему контейнера
+<img width="645" height="154" alt="Снимок экрана 2026-04-15 152744" src="https://github.com/user-attachments/assets/9a892646-84be-490a-b80f-131ad39a3f91" />
+
+
+# Lesson 3: Rate Limiting & Middleware Architecture
