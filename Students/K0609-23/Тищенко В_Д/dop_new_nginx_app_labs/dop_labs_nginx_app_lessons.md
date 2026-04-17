@@ -275,7 +275,3 @@ check-docker-security.sh для practic-rate-limiter-1, practic-nginx-1 (root), 
 
 ![Снимок экрана 2.png](./2026-04-18%2000-51-58.png)
 test-api.sh и test-rate-limiting.sh
-
-
-
-
