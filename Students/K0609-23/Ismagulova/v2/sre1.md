@@ -1,4 +1,4 @@
-# Отчёт по лабораторной работе: Тестирование Nginx и Docker-безопасность
+# Отчёт по лабораторной работе: Nginx (Reverse Proxy), Тестирование Nginx
 
 ## Цель работы
 
@@ -8,8 +8,16 @@
 ## Ход выполнения
 
 ### Урок 1. Тестирование Nginx
+Запуск всех сервисов выполняется командой:
+```bash
+docker compose up --build -d
+```
+
+<img width="1841" height="325" alt="Вставленное изображение" src="https://github.com/user-attachments/assets/392d213f-2cbf-4465-9bf2-366f37182bb1" />
 
 В ходе выполнения первого урока были проверены основные эндпоинты сервиса и отработаны различные способы отправки HTTP-запросов с использованием утилиты `curl`.
+
+<img width="781" height="541" alt="Вставленное изображение (2)" src="https://github.com/user-attachments/assets/d27e8b9d-e91d-423d-af4e-fcc5196c2065" />
 
 #### Выполненные команды:
 
@@ -22,14 +30,18 @@
    ```bash
    curl -H 'X-User-ID: 123' http://localhost:8080/api/v1/status
    ```
+<img width="850" height="567" alt="Вставленное изображение (3)" src="https://github.com/user-attachments/assets/fd424a79-bc99-422b-94eb-d03f93188f8a" />
 
 3. **Измерение времени ответа**  
    ```bash
    curl -w 'Time: %{time_total}s' http://localhost:8080/api/v1/status
    ```
+<img width="1046" height="288" alt="Вставленное изображение (5)" src="https://github.com/user-attachments/assets/ef926300-f444-4407-a9c3-6fd42ff17e30" />
 
 4. **Автоматизация тестов**  
    Все перечисленные проверки были объединены в исполняемый скрипт `test-api.sh`.
+
+<img width="542" height="171" alt="Вставленное изображение (6)" src="https://github.com/user-attachments/assets/5305a89d-f257-44e2-9f49-a656da788f01" />
 
 #### Результаты проверки:
 
@@ -41,4 +53,8 @@
 | Кастомные заголовки обрабатываются | ✅ |
 | Запросы присутствуют в логах `docker logs` | ✅ |
 
+<img width="1230" height="865" alt="Вставленное изображение (4)" src="https://github.com/user-attachments/assets/53a4d2d9-eae9-41ef-99a9-b43bc08d24ab" />
+
 ---
+## Ошибки
+Возникали ошибки в работе с утилитой curl, для проверок приходилось убирать /v1 из всех команд, а также возникла проблема со скриптом, которая решилась путем изменения прав.
