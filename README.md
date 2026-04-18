@@ -2,41 +2,62 @@
 
 Оценки за практические работы по SRE (lections 1-5 + Network Debugging).
 
-## Новые PR (SRE Workshop)
+## Таблица оценок
 
-| № | Студент | Группа | Оценка (0-10) | 
-|---|---------|--------|---------------|
-| 201 | Kulikov | K0109-23 | 8/10 | 
-| 199 | Selezneva | K0609-23 | 7/10 | 
-| 198 | Tovpeko | K0109-23 | 8/10 | 
-| 197 | Kashirskii | K0109-23 | 9/10 |
-| 196 | Goryunova | K0109-23 | 8/10 | 
-| 195 | garipovsamat | K0109-23 | 6/10 | 
-| 194 | Tsitsenko | K0109-23 | 8/10 | 
-| 193 | Gushcarin | K0609-23 | 8/10 | 
-| 192 | Khafizov | K0109-23 | 7/10 | 
-| 191 | Vasilkov-Arseniy | K0109-23 | 
-| 189 | Gorbacheva | K0609-23 | 7/10 |
-| 188 | Kuznetsov | K0609-23 | 6/10 | 
-| 186 | Malimon | K0609-23 | 7/10 | 
-| 184 | Aschibekov Kostya | K0609-23 |
-| 182 | Azarov | K0409-24-1 | 8/10 |
-| 180 | Тищенко В.Д. (vladislava28) | 
+### Группа K0109-23
+
+| Студент | Оценка (0-10) | 
+|---------|---------------|
+| garipovsamat | **8/10** |
+| Goryunova | **9/10** |
+| Kashirskii | **8/10** | 
+| Khafizov | **10/10** | 
+| Tsitsenko | **9/10** |
+| Vasilkov-Arseniy | **10/10** | 
+| krasnov | **0/10** |
+| Komarov | **0/10** | 
+| nika_petrovskaia | **6/10** | 
+| Diakonova Violetta | **6/10** | 
+| Kulikov | **8/10** | 
+| Gutnik | **0/10** |
+| Ilalova | **0/10** | 
+| Tovpeko | **8/10** | 
+| Tsytsenko | **7/10** | 
+| Vershinina | **0/10** | 
+
+### Группа K0609-23
+
+| Студент | Оценка (0-10) | 
+|---------|---------------|
+| Gushcarin | **9/10** | 
+| Aschibekov Kostya | **8/10** | 
+| Selezneva | **7/10** | 
+| Gorbacheva | **7/10** |
+| Kuznetsov | **6/10** |
+| Malimon | **8/10** | 
+| Korzhueva | **7/10** | 
+| Krasilnikova | **0/10** | 
+| Тищенко В.Д. | **7/10** |
+| Ismagulova | **4/10** | 
+| Konkov | **7/10** | 
+| Nalizko_Alona | **0/10** | 
+| Nikiyan | **0/10** | 
+| mikhaylov_ivan | **0/10** | 
+
+## Критерии оценки
+
+- **10/10**: Отличная работа. Все 5 уроков выполнены, подробное описание проблем и их решений, скриншоты
+- **8-9/10**: Хорошая работа. Все уроки выполнены, есть описание основных проблем
+- **6-7/10**: Средняя работа. Выполнены основные задания, минимальное описание
+- **5/10**: Минимально выполнено
+- **0-4/10**: Не выполнено или на доработку
 
 ## На доработку
 
-| № | Студент | Причина |
-|---|---------|--------|
-| 200 | Ilalova | Файлы в PRACTIC, не в Students/K0109-23/Ilalova |
-| 185 | Konkovve | Файлы в K0609-23-main, не в Students/K0609-23/Konkov |
-| 179 | AlonaNalizko | Файл SiriusK8s в корне, не в Students/K0609-23/Nalizko |
+| Студент | Причина |
+|---------|--------|
+| Ilalova (K0109-23) | Файлы в PRACTIC, не в Students/K0109-23/Ilalova |
+| Konkov (K0609-23) | Файлы в K0609-23-main, не в Students/K0609-23/Konkov |
+| Nalizko_Alona (K0609-23) | Файл SiriusK8s в корне, не в Students/K0609-23/Nalizko |
 
 ---
-
-## Предыдущие работы
-
-Оценки за предыдущие работы доступны в папках групп:
-- [Students/K0109-23/README.md](Students/K0109-23/README.md)
-- [Students/K0409-24-1/README.md](Students/K0409-24-1/README.md)
-- [Students/K0409-24-2/README.md](Students/K0409-24-2/README.md)
-- [Students/K0609-23/README.md](Students/K0609-23/README.md)
