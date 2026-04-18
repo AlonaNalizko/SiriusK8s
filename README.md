@@ -29,7 +29,7 @@
 
 | Студент | Оценка (0-10) | 
 |---------|---------------|
-| Gushcarin | **9/10** | 
+| Gushcarin | **10/10** | 
 | Aschibekov Kostya | **8/10** | 
 | Selezneva | **7/10** | 
 | Gorbacheva | **7/10** |
