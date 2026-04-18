@@ -1,0 +1,19 @@
+# Stage 1: builder
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: final image
+FROM python:3.12-alpine
+WORKDIR /app
+# Копируем только установленные пакеты из builder
+COPY --from=builder /root/.local /root/.local
+COPY app.py .
+ENV PATH=/root/.local/bin:$PATH
+ENV APP_VERSION=2.0
+# Никогда не запускаем от root
+RUN adduser -D appuser
+USER appuser
+EXPOSE 5000
+CMD ["python", "app.py"]
