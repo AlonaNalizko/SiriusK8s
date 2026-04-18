@@ -4,24 +4,24 @@
 
 ## Новые PR (SRE Workshop)
 
-| № | Студент | Группа | Оценка (0-10) | Комментарий |
-|---|---------|--------|---------------|------------|
-| 201 | Kulikov | K0109-23 | 8/10 | Хорошая работа, практика 1-3 + SRE |
-| 199 | Selezneva | K0609-23 | 7/10 | SRE labs 1-5, скриншоты |
-| 198 | Tovpeko | K0109-23 | 8/10 | SRE практика |
-| 197 | Kashirskii | K0109-23 | 9/10 | Хорошее описание + extra |
-| 196 | Goryunova | K0109-23 | 8/10 | SRE Workshop |
-| 195 | garipovsamat | K0109-23 | 6/10 | Только скриншоты |
-| 194 | Tsitsenko | K0109-23 | 8/10 | SRE workshop |
-| 193 | Gushcarin | K0609-23 | 8/10 | + отчёт |
-| 192 | Khafizov | K0109-23 | 7/10 | Кратко |
-| 191 | Vasilkov-Arseniy | K0109-23 | 7/10 | labs-after-holidays |
-| 189 | Gorbacheva | K0609-23 | 7/10 | NEW LABS |
-| 188 | Kuznetsov | K0609-23 | 6/10 | SRE l1 |
-| 186 | Malimon | K0609-23 | 7/10 | sre_lab |
-| 184 | Aschibekov Kostya | K0609-23 | 8/10 | SRE1-3, SRE4_5 |
-| 182 | Azarov | K0409-24-1 | 8/10 | Break labs 1-5 |
-| 180 | Тищенко В.Д. (vladislava28) | K0609-23 | 7/10 | dop_new_nginx_app_labs |
+| № | Студент | Группа | Оценка (0-10) | 
+|---|---------|--------|---------------|
+| 201 | Kulikov | K0109-23 | 8/10 | 
+| 199 | Selezneva | K0609-23 | 7/10 | 
+| 198 | Tovpeko | K0109-23 | 8/10 | 
+| 197 | Kashirskii | K0109-23 | 9/10 |
+| 196 | Goryunova | K0109-23 | 8/10 | 
+| 195 | garipovsamat | K0109-23 | 6/10 | 
+| 194 | Tsitsenko | K0109-23 | 8/10 | 
+| 193 | Gushcarin | K0609-23 | 8/10 | 
+| 192 | Khafizov | K0109-23 | 7/10 | 
+| 191 | Vasilkov-Arseniy | K0109-23 | 
+| 189 | Gorbacheva | K0609-23 | 7/10 |
+| 188 | Kuznetsov | K0609-23 | 6/10 | 
+| 186 | Malimon | K0609-23 | 7/10 | 
+| 184 | Aschibekov Kostya | K0609-23 |
+| 182 | Azarov | K0409-24-1 | 8/10 |
+| 180 | Тищенко В.Д. (vladislava28) | 
 
 ## На доработку
 
