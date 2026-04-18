@@ -22,7 +22,7 @@
 | Gutnik | **0/10** |
 | Ilalova | **0/10** | 
 | Tovpeko | **8/10** | 
-| Tsytsenko | **7/10** | 
+| Tsytsenko | **9/10** | 
 | Vershinina | **0/10** | 
 
 ### Группа K0609-23
@@ -32,10 +32,10 @@
 | Gushcarin | **10/10** | 
 | Aschibekov Kostya | **8/10** | 
 | Selezneva | **7/10** | 
-| Gorbacheva | **7/10** |
-| Kuznetsov | **6/10** |
+| Gorbacheva | **9/10** |
+| Kuznetsov | **8/10** |
 | Malimon | **8/10** | 
-| Korzhueva | **7/10** | 
+| Korzhueva | **8/10** | 
 | Krasilnikova | **0/10** | 
 | Тищенко В.Д. | **7/10** |
 | Ismagulova | **4/10** | 
