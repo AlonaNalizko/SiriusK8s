@@ -58,5 +58,5 @@ docker build -t app . --target runtime
 ```
 
 ---
-##Ошибки
+## Ошибки
 Из ошибок стоит отметить большой объем исправлений файла docker-compose.yml.
