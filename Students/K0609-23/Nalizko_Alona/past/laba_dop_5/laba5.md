@@ -1,0 +1,10 @@
+Отчёт по лабораторной работе №5 и практическому заданию 05
+В ходе работы я освоила два сценария: диагностику процессов через htop и strace, а также создание и отладку systemd unit с лимитами ресурсов.
+
+Диагностика процессов (htop, stress, strace). Я научилась отслеживать системные вызовы процессов.  В первой панели запустила htop для визуального контроля CPU и памяти. Во второй панели запустила stress --cpu 2 --vm 1 --vm-bytes 256M для создания нагрузки. В третьей панели нашла PID процесса stress через ps aux | grep stress и запустила sudo strace -p <PID>. В htop увидела, что CPU загружен на 100%, а процесс stress потребляет 256MB памяти. В strace увидела системные вызовы: mmap (выделение памяти), memset (заполнение памяти нулями), futex (синхронизация потоков), clone (создание потоков). Трудности: сначала strace писал Операция не позволена — добавила sudo; strace показывал только wait4(-1 — это был родительский процесс, научилась брать PID процесса с большой памятью (256M в колонке RES в htop).
+
+Systemd unit и диагностика (systemctl, journalctl, Restart=always). Скрипт 05_systemd_break.sh создал сервис script-server.service, который находился в restart loop. Я посмотрела логи через journalctl -u script-server -b --no-pager и увидела цикл перезапусков с ошибкой status=1/FAILURE. Открыла скрипт /opt/break_lab/script_server.sh и увидела exit 1 — скрипт всегда падал. Добавила sleep infinity, чтобы скрипт не завершался, исправила синтаксис set -eu pipefail на set -euo pipefail, исправила $({date -Is}) на $(date -Is). Перезапустила сервис через systemctl restart, после чего systemctl status показал active (running). Трудности: скрипт продолжал падать после добавления sleep infinity, потому что exit 1 был раньше — поставила sleep до exit.
+
+Ссылки на записи сессий:
+https://asciinema.org/a/1449UScu9BJsPTec
+https://asciinema.org/a/SWDvsfDy6unkiHd3
